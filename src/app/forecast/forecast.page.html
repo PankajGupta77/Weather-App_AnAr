@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Forecast
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let forecast of forecastData?.list">
+    <ion-card-header>
+      {{ forecast?.dt_txt }}
+    </ion-card-header>
+    <ion-card-content>
+      Temperature: {{ forecast?.main?.temp }}°C <br>
+      Description: {{ forecast?.weather[0]?.description }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-alert *ngIf="error" header="Error" message="{{ error }}"></ion-alert>
+</ion-content>

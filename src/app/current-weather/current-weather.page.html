@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Current Weather
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input placeholder="Enter city" [(ngModel)]="city"></ion-input>
+  </ion-item>
+  <ion-button (click)="search()">Search</ion-button>
+  
+  <ion-card *ngIf="weatherData">
+    <ion-card-header>
+      {{ weatherData.name }}
+    </ion-card-header>
+    <ion-card-content>
+      Temperature: {{ weatherData.main.temp }}°C <br>
+      Description: {{ weatherData.weather[0].description }} <br>
+      Icon: <img [src]="'http://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'" alt="">
+    </ion-card-content>
+  </ion-card>
+
+  <ion-alert *ngIf="error" header="Error" message="{{ error }}"></ion-alert>
+</ion-content>
