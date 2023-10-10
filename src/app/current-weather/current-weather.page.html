@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content>
+ 
   <ion-item>
     <ion-input placeholder="Enter city" [(ngModel)]="city"></ion-input>
   </ion-item>
@@ -22,6 +23,19 @@
       Icon: <img [src]="'http://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'" alt="">
     </ion-card-content>
   </ion-card>
-
+  <ion-row style="height: 85%;">
+    <ion-col>
+      <ion-tabs slot="">
+    
+    <button routerLink="/forecast">
+   <ion-tab-button tab="forecast">
+      <ion-icon name="cloudy"></ion-icon>
+      <ion-label>Forecast</ion-label>
+    </ion-tab-button>  
+    </button>
+  </ion-tabs>
+    </ion-col>
+  </ion-row>
   <ion-alert *ngIf="error" header="Error" message="{{ error }}"></ion-alert>
 </ion-content>
+

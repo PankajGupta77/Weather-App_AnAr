@@ -16,6 +16,18 @@
       Description: {{ forecast?.weather[0]?.description }}
     </ion-card-content>
   </ion-card>
-
+  <ion-row style="height: 85%; position: sticky;bottom:0px">
+    <ion-col>
+      <ion-tabs slot="">
+    
+    <button routerLink="/current-weather">
+   <ion-tab-button tab="forecast">
+      <ion-icon name="cloudy"></ion-icon>
+      <ion-label>current-weather</ion-label>
+    </ion-tab-button>  
+    </button>
+  </ion-tabs>
+    </ion-col>
+  </ion-row>
   <ion-alert *ngIf="error" header="Error" message="{{ error }}"></ion-alert>
 </ion-content>
